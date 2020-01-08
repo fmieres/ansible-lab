@@ -1,0 +1,15 @@
+- hosts: all
+  gather_facts: no
+  connection: network_cli
+  vars:
+    ansible_network_os: routeros
+  tasks:
+    - name: run command on remote devices
+      routeros_command:
+        commands:
+          - /system routerboard print
+          - /system health print
+      register: result      
+    - name: stdout
+      debug:
+        msg: "{{ result.stdout_lines }}"
