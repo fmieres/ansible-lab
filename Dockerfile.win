@@ -1,0 +1,16 @@
+from ubuntu
+
+run apt update
+
+run apt install  software-properties-common -y
+run apt-add-repository --yes --update ppa:ansible/ansible
+run apt install ansible vim -y
+
+workdir /usr/src
+
+COPY hosts /etc/ansible/hosts 
+COPY dev /usr/src/ 
+COPY known_hosts /root/.ssh/known_hosts 
+COPY ansible.cfg /etc/ansible/ansible.cfg
+
+cmd bash

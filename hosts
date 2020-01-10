@@ -1,2 +1,5 @@
 [mikrotik]
 192.168.88.1
+
+[webservers]
+172.20.197.53 ansible_user=gc-api
